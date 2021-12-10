@@ -1,0 +1,70 @@
+<article class="page-wrapper" [ngClass]="{'bg-boogle': bgSectionTheme == 0,
+           'bg-degods': bgSectionTheme == 1,
+           'bg-pesky-penguins': bgSectionTheme == 2,
+           'bg-smb': bgSectionTheme == 3,
+           'bg-solanauts': bgSectionTheme == 4,
+           'bg-solsocks': bgSectionTheme == 5,
+           'bg-thugbirds': bgSectionTheme == 6,
+           'bg-voxchainz': bgSectionTheme == 7,
+           'bg-daa': bgSectionTheme == 8,
+           'bg-boneworld': bgSectionTheme == 9
+          }">
+    <div class="page-header">
+        <div class="logo-wrapper">
+            <img src="/assets/images/botborgs-logo.png" alt="">
+        </div>
+        <div class="social-icons-wrapper">
+            <div class="social-icons">
+                <img src="/assets/images/social-bot.png" alt="">
+            </div>
+            <div class="social-icons">
+                <img src="/assets/images/social-twitter.png" alt="">
+            </div>
+            <div class="social-icons">
+                <img src="/assets/images/social-m.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="page-content">
+        <section class="button-control-section">
+            <div class="controls-wrapper">
+                <button (click)="changeBgImage(0)"><img src="/assets/images/buttons/boogle.png" alt=""></button>
+                <button (click)="changeBgImage(1)"><img src="/assets/images/buttons/degods.png" alt=""></button>
+                <button (click)="changeBgImage(2)"><img src="/assets/images/buttons/pesky.png" alt=""></button>
+                <button (click)="changeBgImage(3)"><img src="/assets/images/buttons/smb.png" alt=""></button>
+                <button (click)="changeBgImage(4)"><img src="/assets/images/buttons/solanautts.png" alt=""></button>
+                <button (click)="changeBgImage(5)"><img src="/assets/images/buttons/solsocks.png" alt=""></button>
+                <button (click)="changeBgImage(6)"><img src="/assets/images/buttons/thugbirdz.png" alt=""></button>
+                <button (click)="changeBgImage(7)"><img src="/assets/images/buttons/voxchainz.png" alt=""></button>
+                <button (click)="changeBgImage(8)"><img src="/assets/images/buttons/daa.png" alt=""></button>
+                <button (click)="changeBgImage(9)"><img src="/assets/images/buttons/boneworld.png" alt=""></button>
+            </div>
+        </section>
+        <section *ngIf="false">
+            <img src="/assets/images/solana-monkey.png">
+        </section>
+        <section class="screenshot-section">
+            <ng-container>
+                <canvas #canvasElm class="canvas"></canvas>
+                <div class="download-image-btn" *ngIf="selectedFileUrl">
+                    <button (click)="downloadImage()" class="download-btn" fileSaver #downloadBtn>DOWNLOAD</button>
+                </div>
+            </ng-container>
+            <div class="responsive-image" #imageDownloadElm>
+                <img [src]="bgImageSrc">
+                <label for="image-preview" class="image-preview" #imagePreviewLabelElm>
+                  <ng-container *ngIf="selectedFileUrl">
+                    <div class="responsive-image-preview">
+                      <img [src]="selectedFileUrl" #previewImageElm>
+                    </div>
+                  </ng-container>
+                  <p class="click-to-upload" *ngIf="!selectedFileUrl">CLICK TO UPLOAD</p>
+                </label>
+                <input type="file" name="" id="image-preview" #file_picker (change)="chooseImageFile($event)">
+            </div>
+
+
+        </section>
+    </div>
+</article>
+<app-preloader *ngIf="showPreloader"></app-preloader>
