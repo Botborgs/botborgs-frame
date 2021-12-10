@@ -1,4 +1,4 @@
-.social-icons a {
+.page-header a {
 	background-color: transparent;
   color: transparent;
   font-size: initial;
@@ -12,7 +12,22 @@
   padding: 0;
 }
 
-.social-icons a img {
+.page-header a img {
 	position: relative;
 	top: 2.5px;
+}
+
+.cancelClass {
+  position: relative;
+  cursor: auto;
+}
+
+.cancelClass:before {
+  position: absolute;
+  content: '';
+  top: 40%;
+  left: -7.5%;
+  height: 7.5px;
+  width: 115%;
+  background-color: #e200e2;
 }
